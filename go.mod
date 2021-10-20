@@ -156,4 +156,4 @@ replace github.com/hashicorp/terraform => github.com/cycloidio/terraform v0.13.5
 // Fork of Azurerm that has the V2 of the SDK
 replace github.com/terraform-providers/terraform-provider-azurerm => github.com/cycloidio/terraform-provider-azurerm v1.44.1-0.20210517111036-df0beb5af9c3
 
-replace github.com/cycloidio/terracognita => github.com/sockeye44/terracognita v0.7.5-0.20211020082544-55fe00ee0b16
+replace github.com/cycloidio/terracognita => github.com/sockeye44/terracognita v0.7.4.1
