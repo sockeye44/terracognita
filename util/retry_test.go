@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/cycloidio/terracognita/util"
+	"github.com/sockeye44/terracognita/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

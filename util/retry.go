@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/cycloidio/terracognita/log"
+	"github.com/sockeye44/terracognita/log"
 )
 
 const (

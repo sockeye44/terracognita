@@ -2,6 +2,7 @@ package tag
 
 import (
 	"fmt"
+	"crypto/sha256"
 	"regexp"
 	"strings"
 
@@ -9,9 +10,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/aws/aws-sdk-go/service/neptune"
 	"github.com/aws/aws-sdk-go/service/rds"
-	"github.com/chr4/pwgen"
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/util"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/util"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -87,7 +87,7 @@ func GetNameFromTag(key string, srd *schema.ResourceData, fallback string) strin
 	} else if isValidResourceName(forcedFallback) && hclsyntax.ValidIdentifier(forcedFallback) && forcedFallback != "___" {
 		return forcedFallback
 	} else {
-		return pwgen.Alpha(5)
+		return fmt.Sprintf("_sha_%x", sha256.Sum256([]byte(fmt.Sprintf("%s,%s", n, fallback))))[0:16]
 	}
 }
 

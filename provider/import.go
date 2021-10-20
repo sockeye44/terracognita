@@ -7,11 +7,11 @@ import (
 
 	kitlog "github.com/go-kit/kit/log"
 
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/util"
-	"github.com/cycloidio/terracognita/writer"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/util"
+	"github.com/sockeye44/terracognita/writer"
 	"github.com/pkg/errors"
 )
 

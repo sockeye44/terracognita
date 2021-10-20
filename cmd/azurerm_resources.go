@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/cycloidio/terracognita/azurerm"
+	"github.com/sockeye44/terracognita/azurerm"
 )
 
 var (

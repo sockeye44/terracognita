@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/provider"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	tfgoogle "github.com/hashicorp/terraform-provider-google/google"

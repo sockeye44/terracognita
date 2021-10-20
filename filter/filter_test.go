@@ -3,8 +3,8 @@ package filter_test
 import (
 	"testing"
 
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/filter"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/filter"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

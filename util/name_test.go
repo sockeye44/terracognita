@@ -3,7 +3,7 @@ package util_test
 import (
 	"testing"
 
-	"github.com/cycloidio/terracognita/util"
+	"github.com/sockeye44/terracognita/util"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -24,8 +24,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/route53"
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/provider"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -342,7 +342,7 @@ func albListenerCertificates(ctx context.Context, a *aws, resourceType string, f
 
 			// TODO this resource is not importable. Define our own ResourceImporter
 			// Should be removed when terraform will support it
-			// more detail: https://github.com/cycloidio/terracognita/issues/120
+			// more detail: https://github.com/sockeye44/terracognita/issues/120
 			importer := &schema.ResourceImporter{
 				State: func(d *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
 					parts := strings.SplitN(d.Id(), "_", 2)

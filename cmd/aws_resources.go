@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/cycloidio/terracognita/aws"
+	"github.com/sockeye44/terracognita/aws"
 	"github.com/spf13/cobra"
 )
 

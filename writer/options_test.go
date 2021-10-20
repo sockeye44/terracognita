@@ -3,7 +3,7 @@ package writer_test
 import (
 	"testing"
 
-	"github.com/cycloidio/terracognita/writer"
+	"github.com/sockeye44/terracognita/writer"
 	"github.com/stretchr/testify/assert"
 )
 

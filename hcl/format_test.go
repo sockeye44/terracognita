@@ -3,7 +3,7 @@ package hcl_test
 import (
 	"testing"
 
-	"github.com/cycloidio/terracognita/hcl"
+	"github.com/sockeye44/terracognita/hcl"
 	"github.com/stretchr/testify/assert"
 )
 

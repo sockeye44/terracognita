@@ -9,10 +9,10 @@ import (
 	"github.com/pkg/errors"
 	tfazurerm "github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 
-	"github.com/cycloidio/terracognita/cache"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/cache"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/provider"
 )
 
 type azurerm struct {

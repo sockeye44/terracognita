@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/tag"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/tag"
 	"github.com/pkg/errors"
 )
 

@@ -3,7 +3,7 @@ package provider
 import (
 	"context"
 
-	"github.com/cycloidio/terracognita/filter"
+	"github.com/sockeye44/terracognita/filter"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 

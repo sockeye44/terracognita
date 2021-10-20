@@ -3,17 +3,18 @@ package provider
 import (
 	"encoding/json"
 	"fmt"
+	"crypto/sha256"
 	"reflect"
 	"regexp"
 	"strings"
 
 	"github.com/chr4/pwgen"
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/tag"
-	"github.com/cycloidio/terracognita/util"
-	"github.com/cycloidio/terracognita/writer"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/tag"
+	"github.com/sockeye44/terracognita/util"
+	"github.com/sockeye44/terracognita/writer"
 	awsdocs "github.com/cycloidio/tfdocs/providers/aws"
 	azuredocs "github.com/cycloidio/tfdocs/providers/azurerm"
 	googledocs "github.com/cycloidio/tfdocs/providers/google"
@@ -27,7 +28,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-//go:generate mockgen -destination=../mock/resource.go -mock_names=Resource=Resource -package mock github.com/cycloidio/terracognita/provider Resource
+//go:generate mockgen -destination=../mock/resource.go -mock_names=Resource=Resource -package mock github.com/sockeye44/terracognita/provider Resource
 
 // Resource represents the minimal information needed to
 // define a Provider resource
@@ -280,7 +281,7 @@ func (r *resource) Read(f *filter.Filter) error {
 		}
 
 		// Check if the filter tag match any other tags found
-		// https://github.com/cycloidio/terracognita/issues/223
+		// https://github.com/sockeye44/terracognita/issues/223
 		if v, ok := tag.GetOtherTags(r.Provider().String(), r.data, t); ok && v == t.Value {
 			continue
 		}
@@ -318,28 +319,36 @@ func (r *resource) Read(f *filter.Filter) error {
 	return nil
 }
 
+func prepareName(resType string, resId string, configName string) string {
+	hashedId := fmt.Sprintf("%x", sha256.Sum256([]byte(fmt.Sprintf("%s,%s", resId, resType))))
+	return fmt.Sprintf("%s.%s_%s", resType, hashedId[0:4], util.NormalizeName(configName))
+}
+
 // State calculates the state of the Resource and
 // writes it to w
 func (r *resource) State(w writer.Writer) error {
 	if importer := r.tfResource.Importer; importer != nil {
 		// If it does not have any configName we will generate one
 		// and store it, so net time it'll use that one on any config
+
+		
+
 		if r.configName == "" {
-			configName := tag.GetNameFromTag(r.provider.TagKey(), r.data, r.id)
-			if ok, err := w.Has(fmt.Sprintf("%s.%s", r.resourceType, configName)); err != nil {
+			configName := tag.GetNameFromTag(r.provider.TagKey(), r.data, r.data.Id())
+			ok, err := w.Has(prepareName(r.resourceType, r.id, configName)); if err != nil {
 				return err
 			} else if ok {
-				configName = pwgen.Alpha(5)
+				configName = fmt.Sprintf("_rand_%s", pwgen.Alpha(10))
 			}
-
-			err := w.Write(fmt.Sprintf("%s.%s", r.resourceType, configName), r)
+				
+			err = w.Write(prepareName(r.resourceType, r.id, configName), r)
 			if err != nil {
 				return err
 			}
 
 			r.configName = configName
 		} else {
-			err := w.Write(fmt.Sprintf("%s.%s", r.resourceType, r.configName), r)
+			err := w.Write(prepareName(r.resourceType, r.id, r.configName), r)
 			if err != nil {
 				return err
 			}
@@ -371,20 +380,20 @@ func (r *resource) HCL(w writer.Writer) error {
 	// and store it, so net time it'll use that one on any config
 	if r.configName == "" {
 		configName := tag.GetNameFromTag(r.provider.TagKey(), r.data, r.id)
-		if ok, err := w.Has(fmt.Sprintf("%s.%s", r.resourceType, configName)); err != nil {
+		if ok, err := w.Has(prepareName(r.resourceType, r.id, configName)); err != nil {
 			return err
 		} else if ok {
-			configName = pwgen.Alpha(5)
+			configName = fmt.Sprintf("_rand_%s", pwgen.Alpha(10))
 		}
 
-		err := w.Write(fmt.Sprintf("%s.%s", r.resourceType, configName), cfg)
+		err := w.Write(prepareName(r.resourceType, r.id, configName), cfg)
 		if err != nil {
 			return err
 		}
 
 		r.configName = configName
 	} else {
-		err := w.Write(fmt.Sprintf("%s.%s", r.resourceType, r.configName), cfg)
+		err := w.Write(prepareName(r.resourceType, r.id, r.configName), cfg)
 		if err != nil {
 			return err
 		}

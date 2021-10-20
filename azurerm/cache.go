@@ -3,9 +3,9 @@ package azurerm
 import (
 	"context"
 
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/provider"
 	"github.com/pkg/errors"
 )
 

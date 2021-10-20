@@ -7,8 +7,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/provider"
 )
 
 // ResourceType is the type used to define all the Resources

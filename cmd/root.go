@@ -13,8 +13,8 @@ import (
 
 	"github.com/adrg/xdg"
 	"github.com/cycloidio/mxwriter"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/writer"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/writer"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v2"

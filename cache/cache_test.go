@@ -3,10 +3,10 @@ package cache_test
 import (
 	"testing"
 
-	"github.com/cycloidio/terracognita/cache"
-	"github.com/cycloidio/terracognita/errcode"
-	"github.com/cycloidio/terracognita/mock"
-	"github.com/cycloidio/terracognita/provider"
+	"github.com/sockeye44/terracognita/cache"
+	"github.com/sockeye44/terracognita/errcode"
+	"github.com/sockeye44/terracognita/mock"
+	"github.com/sockeye44/terracognita/provider"
 	"github.com/golang/mock/gomock"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"

@@ -9,13 +9,13 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/cycloidio/terracognita/azurerm"
-	"github.com/cycloidio/terracognita/filter"
-	"github.com/cycloidio/terracognita/hcl"
-	"github.com/cycloidio/terracognita/log"
-	"github.com/cycloidio/terracognita/provider"
-	"github.com/cycloidio/terracognita/state"
-	"github.com/cycloidio/terracognita/writer"
+	"github.com/sockeye44/terracognita/azurerm"
+	"github.com/sockeye44/terracognita/filter"
+	"github.com/sockeye44/terracognita/hcl"
+	"github.com/sockeye44/terracognita/log"
+	"github.com/sockeye44/terracognita/provider"
+	"github.com/sockeye44/terracognita/state"
+	"github.com/sockeye44/terracognita/writer"
 )
 
 var (

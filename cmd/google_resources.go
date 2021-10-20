@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/cycloidio/terracognita/google"
+	"github.com/sockeye44/terracognita/google"
 	"github.com/spf13/cobra"
 )
 
